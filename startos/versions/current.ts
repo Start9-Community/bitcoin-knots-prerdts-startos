@@ -42,13 +42,13 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:27',
+  version: '#knotsprerdts:29.3:28',
   releaseNotes: {
-    en_US: `- Bitcoin Knots (RDTS) follows a different chain and can no longer be switched to from here.`,
-    es_ES: `- Bitcoin Knots (RDTS) sigue una cadena diferente y ya no se puede cambiar a él desde aquí.`,
-    de_DE: `- Bitcoin Knots (RDTS) folgt einer anderen Kette und kann von hier aus nicht mehr gewechselt werden.`,
-    pl_PL: `- Bitcoin Knots (RDTS) podąża za innym łańcuchem i nie można już się na niego przełączyć.`,
-    fr_FR: `- Bitcoin Knots (RDTS) suit une chaîne différente et il n'est plus possible de basculer vers lui depuis ici.`,
+    en_US: `- Bitcoin Knots (Legacy), carried over from StartOS 0.3.5.1, can now be switched to this package, keeping its blockchain.`,
+    es_ES: `- Bitcoin Knots (Legacy), heredado de StartOS 0.3.5.1, ahora puede cambiarse a este paquete conservando su cadena de bloques.`,
+    de_DE: `- Bitcoin Knots (Legacy), aus StartOS 0.3.5.1 übernommen, kann jetzt zu diesem Paket gewechselt werden und behält dabei seine Blockchain.`,
+    pl_PL: `- Bitcoin Knots (Legacy), przeniesiony ze StartOS 0.3.5.1, można teraz przełączyć na ten pakiet z zachowaniem jego łańcucha bloków.`,
+    fr_FR: `- Bitcoin Knots (Legacy), repris de StartOS 0.3.5.1, peut désormais être basculé vers ce paquet en conservant sa chaîne de blocs.`,
   },
   migrations: {
     up: async ({ effects }) => {},
@@ -97,6 +97,10 @@ export const current = VersionInfo.of({
         down: async ({ effects }) => {
           await bitcoinConfFile.merge(effects, mempoolReset)
         },
+      },
+      // #knots through :7 ran Knots 29.3.knots20260210 or earlier; :8 is the first RDTS build.
+      ['<=#knots:29.3:7']: {
+        up: async () => {},
       },
     },
   },
