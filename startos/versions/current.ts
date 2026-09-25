@@ -42,13 +42,13 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:28',
+  version: '#knotsprerdts:29.3:29',
   releaseNotes: {
-    en_US: `- Bitcoin Knots (Legacy), carried over from StartOS 0.3.5.1, can now be switched to this package, keeping its blockchain.`,
-    es_ES: `- Bitcoin Knots (Legacy), heredado de StartOS 0.3.5.1, ahora puede cambiarse a este paquete conservando su cadena de bloques.`,
-    de_DE: `- Bitcoin Knots (Legacy), aus StartOS 0.3.5.1 übernommen, kann jetzt zu diesem Paket gewechselt werden und behält dabei seine Blockchain.`,
-    pl_PL: `- Bitcoin Knots (Legacy), przeniesiony ze StartOS 0.3.5.1, można teraz przełączyć na ten pakiet z zachowaniem jego łańcucha bloków.`,
-    fr_FR: `- Bitcoin Knots (Legacy), repris de StartOS 0.3.5.1, peut désormais être basculé vers ce paquet en conservant sa chaîne de blocs.`,
+    en_US: `- Restore wallet no longer reports failure while a large wallet is still being restored.`,
+    es_ES: `- Restore wallet ya no informa de un fallo mientras un monedero grande aún se está restaurando.`,
+    de_DE: `- Restore wallet meldet keinen Fehler mehr, während eine große Wallet noch wiederhergestellt wird.`,
+    pl_PL: `- Restore wallet nie zgłasza już błędu, gdy duży portfel jest wciąż przywracany.`,
+    fr_FR: `- Restore wallet ne signale plus d'échec pendant qu'un portefeuille volumineux est encore en cours de restauration.`,
   },
   migrations: {
     up: async ({ effects }) => {},
