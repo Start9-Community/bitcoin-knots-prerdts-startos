@@ -54,13 +54,17 @@ export const restorewallet = sdk.Action.withoutInput(
         .mountAssets({ subpath: null, mountpoint }),
       'Restore wallet',
       async (subc) => {
-        return await subc.execFail([
-          'bitcoin-cli',
-          ...rpcArgs({ prune: !!conf.prune }),
-          'restorewallet',
-          wallet,
-          backupFile,
-        ])
+        return await subc.execFail(
+          [
+            'bitcoin-cli',
+            ...rpcArgs({ prune: !!conf.prune }),
+            'restorewallet',
+            wallet,
+            backupFile,
+          ],
+          undefined,
+          null,
+        )
       },
     )
 
