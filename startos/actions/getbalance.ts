@@ -56,17 +56,50 @@ export const getbalance = sdk.Action.withoutInput(
           ...rpcArgs({ prune: !!conf.prune, wallet }),
           'getbalances',
         ])
-        const result = JSON.parse(balancesRes.stdout as string)
-
-        return `wallet: ${walletLabel(wallet)} — trusted: ${result.mine.trusted}, untrusted: ${result.mine.untrusted_pending}, immature: ${result.mine.immature}`
+        return JSON.parse(balancesRes.stdout as string).mine as {
+          trusted: number
+          untrusted_pending: number
+          immature: number
+        }
       },
     )
 
+    const balance = (name: string, description: string, btc: number) => ({
+      type: 'single' as const,
+      name,
+      description,
+      value: `${btc.toFixed(8)} BTC`,
+      copyable: true,
+      qr: false,
+      masked: false,
+    })
+
     return {
       version: '1',
-      title: i18n('Success'),
-      message: res,
-      result: null,
+      title: i18n('Wallet ${wallet}', { wallet: walletLabel(wallet) }),
+      message: null,
+      result: {
+        type: 'group',
+        value: [
+          balance(
+            i18n('Trusted'),
+            i18n(
+              'Confirmed funds, plus unconfirmed outputs this wallet created itself, such as change.',
+            ),
+            res.trusted,
+          ),
+          balance(
+            i18n('Untrusted Pending'),
+            i18n('Unconfirmed funds from others, waiting in the mempool.'),
+            res.untrusted_pending,
+          ),
+          balance(
+            i18n('Immature'),
+            i18n('Mining rewards that cannot be spent yet.'),
+            res.immature,
+          ),
+        ],
+      },
     }
   },
 )

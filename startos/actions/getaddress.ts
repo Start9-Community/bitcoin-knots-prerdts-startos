@@ -63,10 +63,14 @@ export const getaddress = sdk.Action.withoutInput(
     return {
       version: '1',
       title: i18n('Success'),
-      message: i18n('Your new address: ${stdout}', {
-        stdout: res.stdout as string,
-      }),
-      result: null,
+      message: i18n('Your new address is below.'),
+      result: {
+        type: 'single',
+        value: String(res.stdout).trim(),
+        copyable: true,
+        qr: true,
+        masked: false,
+      },
     }
   },
 )

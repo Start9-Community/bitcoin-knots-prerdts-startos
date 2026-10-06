@@ -96,10 +96,14 @@ export const signMessage = sdk.Action.withInput(
     return {
       version: '1',
       title: i18n('Success'),
-      message: i18n('Your signature: ${stdout}', {
-        stdout: res.stdout as string,
-      }),
-      result: null,
+      message: i18n('Your signature is below.'),
+      result: {
+        type: 'single',
+        value: String(res.stdout).trim(),
+        copyable: true,
+        qr: false,
+        masked: false,
+      },
     }
   },
 )
