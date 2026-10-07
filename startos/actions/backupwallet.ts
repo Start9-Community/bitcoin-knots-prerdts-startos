@@ -21,7 +21,10 @@ export const backupwallet = sdk.Action.withoutInput(
     return {
       name: i18n('Backup wallet'),
       description: i18n('Backup wallet in a file for startOS system backup'),
-      warning: null,
+      warning: i18n(
+        'Replaces any earlier backup of wallet ${wallet} with a copy of the wallet as it is now.',
+        { wallet: walletLabel(await getSelectedWallet(effects)) },
+      ),
       allowedStatuses: 'only-running',
       group: i18n('Wallet'),
       visibility: !conf?.raw?.disablewallet
