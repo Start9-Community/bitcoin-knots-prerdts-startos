@@ -102,6 +102,7 @@ export const signMessage = sdk.Action.withInput(
         value: String(res.stdout).trim(),
         copyable: true,
         qr: false,
+        launchable: false,
         masked: false,
       },
     }

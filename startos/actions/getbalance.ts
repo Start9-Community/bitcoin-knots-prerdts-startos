@@ -71,6 +71,7 @@ export const getbalance = sdk.Action.withoutInput(
       value: `${btc.toFixed(8)} BTC`,
       copyable: true,
       qr: false,
+      launchable: false,
       masked: false,
     })
 

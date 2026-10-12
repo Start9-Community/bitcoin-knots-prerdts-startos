@@ -107,6 +107,7 @@ export const sendAllCoin = sdk.Action.withInput(
         value: res,
         copyable: true,
         qr: false,
+        launchable: false,
         masked: false,
       },
     }

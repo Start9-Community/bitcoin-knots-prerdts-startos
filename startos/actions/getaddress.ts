@@ -69,6 +69,7 @@ export const getaddress = sdk.Action.withoutInput(
         value: String(res.stdout).trim(),
         copyable: true,
         qr: true,
+        launchable: false,
         masked: false,
       },
     }
