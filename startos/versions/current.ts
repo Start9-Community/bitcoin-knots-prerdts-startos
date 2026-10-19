@@ -42,18 +42,18 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:30',
+  version: '#knotsprerdts:29.3:31',
   releaseNotes: {
     en_US:
-      'Restarting Bitcoin Knots (pre-RDTS) while it is still starting stops every process of the previous run.',
+      'Other Settings can set the block weight reserved for the coinbase transaction, and mining services can request it. Built with start-sdk 3.1.0.',
     es_ES:
-      'Reiniciar Bitcoin Knots (pre-RDTS) mientras aún se está iniciando detiene todos los procesos de la ejecución anterior.',
+      'Otras configuraciones permite fijar el peso de bloque reservado para la transacción coinbase, y los servicios de minería pueden solicitarlo. Compilado con start-sdk 3.1.0.',
     de_DE:
-      'Ein Neustart von Bitcoin Knots (pre-RDTS), während es noch startet, beendet alle Prozesse des vorherigen Laufs.',
+      'Unter Weitere Einstellungen lässt sich das für die Coinbase-Transaktion reservierte Blockgewicht festlegen, und Mining-Dienste können es anfordern. Erstellt mit start-sdk 3.1.0.',
     pl_PL:
-      'Ponowne uruchomienie Bitcoin Knots (pre-RDTS) w trakcie uruchamiania zatrzymuje wszystkie procesy poprzedniego uruchomienia.',
+      'W akcji Inne ustawienia można ustawić wagę bloku zarezerwowaną dla transakcji coinbase, a usługi wydobywcze mogą o nią prosić. Zbudowano z start-sdk 3.1.0.',
     fr_FR:
-      "Redémarrer Bitcoin Knots (pre-RDTS) pendant son démarrage arrête tous les processus de l'exécution précédente.",
+      'Les Autres paramètres permettent de définir le poids de bloc réservé à la transaction coinbase, et les services de minage peuvent le demander. Construit avec start-sdk 3.1.0.',
   },
   migrations: {
     up: async ({ effects }) => {},

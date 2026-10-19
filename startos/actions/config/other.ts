@@ -23,6 +23,7 @@ export const otherConfig = sdk.Action.withInput(
     zmqEnabled: true,
     txindex: true,
     blocknotify: true,
+    blockreservedweight: true,
     templateconstruction: true,
     blockreconstruction: true,
     coinstatsindex: true,
