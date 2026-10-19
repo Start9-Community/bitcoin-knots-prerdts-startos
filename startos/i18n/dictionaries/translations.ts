@@ -343,6 +343,8 @@ export default {
     1758: 'Use PCP or NAT-PMP to map the listening port.',
     1759: 'Objetivo máximo de subida',
     1760: "Tries to keep outbound traffic under the given target in MiB per 24h. Limit does not apply to peers with 'download' permission or blocks created within past week. 0 = no limit.",
+    1761: 'Peso reservado del bloque',
+    1762: 'Peso de bloque que las plantillas de bloque dejan libre para la transacción coinbase. El software de minería que construye una coinbase grande, como un pool que paga a muchas salidas, necesita más que el valor predeterminado.',
     // Wallet actions
     1900: 'Get Balance',
     1901: 'Get the balance of your Bitcoin wallet.',
@@ -775,6 +777,8 @@ export default {
     1758: 'Use PCP or NAT-PMP to map the listening port.',
     1759: 'Maximales Upload-Ziel',
     1760: "Tries to keep outbound traffic under the given target in MiB per 24h. Limit does not apply to peers with 'download' permission or blocks created within past week. 0 = no limit.",
+    1761: 'Reserviertes Blockgewicht',
+    1762: 'Blockgewicht, das Blockvorlagen für die Coinbase-Transaktion freihalten. Mining-Software, die eine große Coinbase erstellt, etwa ein Pool, der an viele Ausgaben auszahlt, benötigt mehr als den Standardwert.',
     // Wallet actions
     1900: 'Get Balance',
     1901: 'Get the balance of your Bitcoin wallet.',
@@ -1207,6 +1211,8 @@ export default {
     1758: 'Use PCP or NAT-PMP to map the listening port.',
     1759: 'Maksymalny limit wysyłania',
     1760: "Tries to keep outbound traffic under the given target in MiB per 24h. Limit does not apply to peers with 'download' permission or blocks created within past week. 0 = no limit.",
+    1761: 'Zarezerwowana waga bloku',
+    1762: 'Waga bloku, którą szablony bloków pozostawiają wolną dla transakcji coinbase. Oprogramowanie wydobywcze tworzące dużą transakcję coinbase, na przykład pula wypłacająca na wiele wyjść, potrzebuje więcej niż wartość domyślna.',
     // Wallet actions
     1900: 'Get Balance',
     1901: 'Get the balance of your Bitcoin wallet.',
@@ -1639,6 +1645,8 @@ export default {
     1758: 'Use PCP or NAT-PMP to map the listening port.',
     1759: "Objectif maximal d'envoi",
     1760: "Tries to keep outbound traffic under the given target in MiB per 24h. Limit does not apply to peers with 'download' permission or blocks created within past week. 0 = no limit.",
+    1761: 'Poids de bloc réservé',
+    1762: 'Poids de bloc que les modèles de bloc laissent libre pour la transaction coinbase. Un logiciel de minage qui construit une coinbase volumineuse, comme un pool qui paie de nombreuses sorties, a besoin de plus que la valeur par défaut.',
     // Wallet actions
     1900: 'Get Balance',
     1901: 'Get the balance of your Bitcoin wallet.',

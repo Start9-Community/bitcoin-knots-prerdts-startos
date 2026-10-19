@@ -36,7 +36,7 @@ Four configuration actions cover the full set of editable `bitcoin.conf` values,
 - **Mempool Settings** — Knots' policy controls (OP_RETURN limits, parasite/token filters, replacement rules, ancestor/descendant limits, dust relay fee, etc.) plus standard mempool sizing.
 - **Peer Settings** — `onlynet`, BIP324 v2 transport, I2P SAM proxy on/off, manual peers, max connections.
 - **RPC Settings** — RPC threads, work queue, server timeout.
-- **Other Settings** — ZMQ, txindex, block templates, coinstats index, block filters (BIP158/157), pruning, dbcache, wallet master switches, NAT-PMP, max upload target, and more.
+- **Other Settings** — ZMQ, txindex, block templates, the block weight reserved for a mining service's coinbase, coinstats index, block filters (BIP158/157), pruning, dbcache, wallet master switches, NAT-PMP, max upload target, and more.
 
 Turning on txindex, the coinstats index, or block filters after the chain is already synced starts a rebuild from the first block. The **Index Sync** health check on the Dashboard tracks it, and anything relying on that index — transaction lookups, filter-based wallet scans — stays incomplete until it finishes, even though the node itself reports fully synced.
 
