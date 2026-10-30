@@ -23,6 +23,9 @@ export default {
     18: 'Construyendo ${index}: ${percentage}%',
     19: 'Índice de filtros de bloques',
     20: 'No se pudo leer ${cmd} de Bitcoin: ${error}',
+    21: 'Validación en segundo plano',
+    22: 'Todos los bloques están validados',
+    23: 'Validando bloques históricos: ${percentage}%',
 
     // interfaces.ts
     100: 'RPC',
@@ -457,6 +460,9 @@ export default {
     18: '${index} wird aufgebaut: ${percentage}%',
     19: 'Blockfilter-Index',
     20: '${cmd} konnte nicht von Bitcoin gelesen werden: ${error}',
+    21: 'Hintergrundvalidierung',
+    22: 'Alle Blöcke sind validiert',
+    23: 'Historische Blöcke werden validiert: ${percentage}%',
 
     // interfaces.ts
     100: 'RPC',
@@ -891,6 +897,9 @@ export default {
     18: 'Budowanie ${index}: ${percentage}%',
     19: 'Indeks filtrów bloków',
     20: 'Nie udało się odczytać ${cmd} z Bitcoina: ${error}',
+    21: 'Walidacja w tle',
+    22: 'Wszystkie bloki są zweryfikowane',
+    23: 'Weryfikowanie historycznych bloków: ${percentage}%',
 
     // interfaces.ts
     100: 'RPC',
@@ -1325,6 +1334,9 @@ export default {
     18: 'Construction de ${index} : ${percentage}%',
     19: 'Index des filtres de blocs',
     20: 'Impossible de lire ${cmd} depuis Bitcoin : ${error}',
+    21: 'Validation en arrière-plan',
+    22: 'Tous les blocs sont validés',
+    23: 'Validation des blocs historiques : ${percentage}%',
 
     // interfaces.ts
     100: 'RPC',

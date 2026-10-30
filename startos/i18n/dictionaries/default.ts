@@ -22,6 +22,9 @@ const dict = {
   'Building ${index}: ${percentage}%': 18,
   'Block Filter Index': 19,
   'Could not read ${cmd} from Bitcoin: ${error}': 20,
+  'Background Validation': 21,
+  'Every block is validated': 22,
+  'Validating historical blocks: ${percentage}%': 23,
 
   // interfaces.ts
   RPC: 100,
