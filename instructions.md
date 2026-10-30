@@ -63,6 +63,10 @@ Every action above acts on the currently selected wallet, so if you run more tha
 
 - **Prioritize Transaction** — bump a transaction's relative priority in the mempool with a fee delta.
 
+### Outbound traffic
+
+If you publish the **Peer** interface through StartTunnel to keep your home IP private, send Bitcoin Knots's outbound traffic through that tunnel too. Connections Bitcoin Knots opens itself to clearnet peers otherwise leave through your home router, so those peers see your home IP. While Bitcoin Knots is limited to Tor and I2P, this doesn't apply. If you use the tunnel for another reason, such as a port your router can't forward, there is nothing to change.
+
 ### Maintenance
 
 - **Reindex Blockchain** — full reindex; expect a long re-sync.
