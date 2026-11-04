@@ -1,45 +1,19 @@
-# Updating the upstream version
+# Updating
 
-**There will be no further upstream version.** Bitcoin Knots ships RDTS from
-`29.3.knots20260508` on, and the Knots developers have confirmed no further
-non-RDTS release will be cut. `29.3.knots20260507` is the last one, and this
-package is pinned to it permanently.
+## Bitcoin Knots
 
-Nothing below is a bump procedure. It is what a rebuild of the pinned release
-still depends on.
+There is no further upstream version: `29.3.knots20260507` is the last non-RDTS Knots release, and this package stays pinned to it.
 
-## The pin
+The pin is the `VERSION` build arg in `images.bitcoind.source.dockerBuild.buildArgs` (`startos/manifest/index.ts`), with `PATH_VERSION = '29.x'`. The `Dockerfile` downloads the release from `bitcoinknots.org/files/${PATH_VERSION}/${VERSION}/` and verifies `SHA256SUMS.asc` against a 3-of-5 quorum of the release signers in `assets/release-keys/` (`PINNED_FINGERPRINTS`). If upstream moves that path or rotates those keys, a rebuild needs both refreshed.
 
-`VERSION` build-arg under `images.bitcoind.source.dockerBuild.buildArgs` in
-`startos/manifest/index.ts`, paired with `PATH_VERSION = '29.x'`.
+## btc-rpc-proxy
 
-The `bitcoind` image is built locally from `Dockerfile`: it downloads the
-release tarball from `bitcoinknots.org/files/${PATH_VERSION}/${VERSION}/` and
-verifies `SHA256SUMS.asc` against a pinned 3-of-5 quorum of Knots release
-signers (keys in `assets/release-keys/`, fingerprints in
-`PINNED_FINGERPRINTS`). There is no `dockerTag` — the version lives in
-`buildArgs`. If upstream retires that download path or rotates those keys, a
-rebuild breaks and needs `PINNED_FINGERPRINTS` and `assets/release-keys/`
-refreshed.
+`images.proxy.source.dockerTag`, a Start9-built image: `ghcr.io/start9labs/btc-rpc-proxy:v<version>`.
 
-## The frozen `satisfies` values
+## Python
 
-The current version file carries `.satisfies('29.4:15')` and
-`.satisfies('28.4:28')` — the Bitcoin Core revisions this package stands in for
-when a dependent's `versionRange` is evaluated. They no longer track Core.
+`images.python.source.dockerTag`, the official `python:<version>-alpine` image on Docker Hub.
 
-The consequence is worth knowing: as Bitcoin Core keeps bumping its `:N`, a
-dependent that raises its floor past those two revisions stops being
-satisfiable by this package. Dependents drop off one at a time rather than all
-at once, and nothing short of a release fixes it.
+## i2pd
 
-## The i2pd image
-
-The service-log filter's drop list (`startos/i2pdLogFilter.ts`) is transcribed
-verbatim from the pinned i2pd image's message wording. Bumping the `i2pd` image
-tag can reword those messages; that fails open — a reworded family passes the
-filter and the log flood returns — rather than dropping evidence, but it means
-an i2pd bump owes a re-validation: run `npm test`, then watch a few hours of
-live service logs and fold any reworded families back into the list (and its
-test corpus). The same filter and test ship in `bitcoin-core-startos`, which
-maintains its own copy.
+`images.i2pd.source.dockerTag`, `purplei2p/i2pd:release-<version>` on Docker Hub; releases at <https://github.com/PurpleI2P/i2pd/releases>. `startos/i2pdLogFilter.ts`'s drop list matches the pinned image's exact log wording: after a bump, check the new image's messages against it and fold reworded ones into the list and `test/i2pdLogFilter.test.ts`.
