@@ -14,6 +14,7 @@ import {
   ChainTip,
   GetBlockchainInfo,
   i2pControlPort,
+  peerPortInternal,
   rootDir,
   rpccookiefile,
   rpcPort,
@@ -129,7 +130,11 @@ export const main = sdk.setupMain(async ({ effects }) => {
     return { cancel: false }
   })
 
-  const bitcoinArgs: string[] = [`-onion=${torSocks}`]
+  // The ini writer quotes a value starting with `[`, which bitcoind does not unquote.
+  const bitcoinArgs: string[] = [
+    `-onion=${torSocks}`,
+    `-bind=[::]:${peerPortInternal}`,
+  ]
 
   if (reindexBlockchain) {
     bitcoinArgs.push('-reindex')
