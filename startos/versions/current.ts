@@ -42,18 +42,18 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:31',
+  version: '#knotsprerdts:29.3:32',
   releaseNotes: {
     en_US:
-      'Other Settings can set the block weight reserved for the coinbase transaction, and mining services can request it. Built with start-sdk 3.1.0.',
+      "Peers and ZMQ clients can now connect over the server's IPv6 addresses.",
     es_ES:
-      'Otras configuraciones permite fijar el peso de bloque reservado para la transacción coinbase, y los servicios de minería pueden solicitarlo. Compilado con start-sdk 3.1.0.',
+      'Los pares y los clientes ZMQ ahora pueden conectarse a través de las direcciones IPv6 del servidor.',
     de_DE:
-      'Unter Weitere Einstellungen lässt sich das für die Coinbase-Transaktion reservierte Blockgewicht festlegen, und Mining-Dienste können es anfordern. Erstellt mit start-sdk 3.1.0.',
+      'Peers und ZMQ-Clients können sich jetzt über die IPv6-Adressen des Servers verbinden.',
     pl_PL:
-      'W akcji Inne ustawienia można ustawić wagę bloku zarezerwowaną dla transakcji coinbase, a usługi wydobywcze mogą o nią prosić. Zbudowano z start-sdk 3.1.0.',
+      'Peery i klienci ZMQ mogą teraz łączyć się przez adresy IPv6 serwera.',
     fr_FR:
-      'Les Autres paramètres permettent de définir le poids de bloc réservé à la transaction coinbase, et les services de minage peuvent le demander. Construit avec start-sdk 3.1.0.',
+      'Les pairs et les clients ZMQ peuvent désormais se connecter via les adresses IPv6 du serveur.',
   },
   migrations: {
     up: async ({ effects }) => {},
