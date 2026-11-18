@@ -1,5 +1,5 @@
 import { healthFns, TOML } from '@start9labs/start-sdk'
-import { access, rm, writeFile } from 'fs/promises'
+import { access, readFile, rename, rm, writeFile } from 'fs/promises'
 import { request } from 'node:https'
 import { socksHostId, socksPort } from 'tor-startos/startos/utils'
 import { bitcoinConfFile } from './fileModels/bitcoin.conf'
@@ -19,6 +19,9 @@ import {
   rpccookiefile,
   rpcPort,
   rpcPortPruned,
+  rpcCookieName,
+  rpcPruneName,
+  rpcVolumeId,
 } from './utils'
 
 // JSON-RPC helper for i2pd's I2PControl API (uses self-signed cert)
@@ -152,12 +155,18 @@ export const main = sdk.setupMain(async ({ effects }) => {
   )
 
   const rpcCookiePath = `${rootDir}/${rpccookiefile}`
+  const publish = async (name: string, data: string, mode?: number) => {
+    const path = sdk.volumes[rpcVolumeId].subpath(name)
+    await writeFile(`${path}.tmp`, data, { mode })
+    await rename(`${path}.tmp`, path)
+  }
 
-  // remove cookie file
-  await rm(`${bitcoindSub.rootfs}${rpcCookiePath}`, {
-    force: true,
-    recursive: true,
-  })
+  for (const path of [
+    `${bitcoindSub.rootfs}${rpcCookiePath}`,
+    sdk.volumes[rpcVolumeId].subpath(rpcCookieName),
+  ]) {
+    await rm(path, { force: true, recursive: true })
+  }
 
   /**
    * One read-only bitcoin-cli call for the health checks below, parsed. Every
@@ -273,6 +282,21 @@ export const main = sdk.setupMain(async ({ effects }) => {
         },
       },
       requires: ['nocow'],
+    })
+    .addOneshot('publish-rpc', {
+      subcontainer: null,
+      exec: {
+        fn: async () => {
+          await publish(
+            rpcCookieName,
+            await readFile(`${bitcoindSub.rootfs}${rpcCookiePath}`, 'utf8'),
+            0o600,
+          )
+          await publish(rpcPruneName, String(bitcoinConf.prune ?? 0))
+          return null
+        },
+      },
+      requires: ['bitcoind'],
     })
     .addHealthCheck('sync-progress', {
       ready: {
