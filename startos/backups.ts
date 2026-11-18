@@ -8,6 +8,7 @@ export const { createBackup, restoreInit } = sdk.setupBackups(async () =>
       'chainstate/',
       'indexes/',
       '.cookie',
+      'rpc/',
       '**/*-journal',
       // i2pd. router.info is derived from router.keys but kept: restoring keys
       // without it lands i2pd on a "malformed, creating new" path that emits one
