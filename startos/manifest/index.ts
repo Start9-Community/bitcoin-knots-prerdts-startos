@@ -11,7 +11,7 @@ export const manifest = setupManifest({
   upstreamRepo: 'https://github.com/bitcoinknots/bitcoin',
   marketingUrl: 'https://bitcoinknots.org/',
   description: { short, long },
-  volumes: ['main', 'i2pd'],
+  volumes: ['main', 'i2pd', 'public'],
   images: {
     bitcoind: {
       source: {
