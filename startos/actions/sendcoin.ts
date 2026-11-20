@@ -5,6 +5,7 @@ import {
   getSelectedWallet,
   rootDir,
   rpcArgs,
+  walletLabel,
 } from '../utils'
 import { i18n } from '../i18n'
 
@@ -25,17 +26,33 @@ const inputSpec = InputSpec.of({
   })),
   amount: Value.dynamicText(async ({ effects }) => ({
     name: i18n('Amount'),
-    description: i18n('Amount of the transaction. (in BTC)'),
+    description: i18n('Amount to send, in BTC, with up to 8 decimal places.'),
     required: true,
     default: null,
+    patterns: [
+      {
+        regex: '^(?=.*[1-9])[0-9]{1,8}(\\.[0-9]{1,8})?$',
+        description: i18n(
+          'Must be an amount greater than 0, with up to 8 decimal places.',
+        ),
+      },
+    ],
   })),
   fee: Value.dynamicText(async ({ effects }) => ({
     name: i18n('Fee'),
     description: i18n(
-      'Fees in sat/vbytes you want to pay for the transaction.',
+      'Fee rate in sat/vB: greater than 0 and at most 1000, with up to 3 decimal places.',
     ),
     required: true,
     default: null,
+    patterns: [
+      {
+        regex: '^(?=.*[1-9])([0-9]{1,3}(\\.[0-9]{1,3})?|1000(\\.0{1,3})?)$',
+        description: i18n(
+          'Must be greater than 0 and at most 1000 sat/vB, with up to 3 decimal places.',
+        ),
+      },
+    ],
   })),
 })
 
@@ -50,7 +67,10 @@ export const sendCoin = sdk.Action.withInput(
     return {
       name: i18n('Send Coins'),
       description: i18n('Send coins to a Bitcoin address.'),
-      warning: null,
+      warning: i18n(
+        'Sends funds from wallet ${wallet} on this node. A sent transaction cannot be reversed: check the address and amount before you submit.',
+        { wallet: walletLabel(await getSelectedWallet(effects)) },
+      ),
       allowedStatuses: 'only-running',
       group: i18n('Wallet'),
       visibility: !conf?.raw?.disablewallet

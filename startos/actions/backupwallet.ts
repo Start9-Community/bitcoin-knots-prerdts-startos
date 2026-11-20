@@ -17,13 +17,20 @@ export const backupwallet = sdk.Action.withoutInput(
   // metadata
   async ({ effects }) => {
     const conf = (await bitcoinConfFile.read().const(effects))!
+    const wallet = await getSelectedWallet(effects)
 
     return {
       name: i18n('Backup wallet'),
-      description: i18n('Backup wallet in a file for startOS system backup'),
+      description: i18n(
+        'Writes a copy of wallet ${wallet} to the file ${file} at the top of the main data volume, which StartOS backups include. Restore wallet reads it back from there.',
+        {
+          wallet: walletLabel(wallet),
+          file: isPathSafeWalletName(wallet) ? `${wallet}.dat` : 'default.dat',
+        },
+      ),
       warning: i18n(
         'Replaces any earlier backup of wallet ${wallet} with a copy of the wallet as it is now.',
-        { wallet: walletLabel(await getSelectedWallet(effects)) },
+        { wallet: walletLabel(wallet) },
       ),
       allowedStatuses: 'only-running',
       group: i18n('Wallet'),

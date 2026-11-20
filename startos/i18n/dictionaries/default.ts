@@ -358,9 +358,9 @@ const dict = {
   'The Bitcoin address you want to send the funds.': 1923,
   'Must be alphanumeric.': 1924,
   Amount: 1925,
-  'Amount of the transaction. (in BTC)': 1926,
+  'Amount to send, in BTC, with up to 8 decimal places.': 1926,
   Fee: 1927,
-  'Fees in sat/vbytes you want to pay for the transaction.': 1928,
+  'Fee rate in sat/vB: greater than 0 and at most 1000, with up to 3 decimal places.': 1928,
 
   // actions/wallet - sendallcoin.ts
   'Send All Coins': 1930,
@@ -388,7 +388,7 @@ const dict = {
 
   // actions/backupwallet.ts
   'Backup wallet': 2500,
-  'Backup wallet in a file for startOS system backup': 2501,
+  'Writes a copy of wallet ${wallet} to the file ${file} at the top of the main data volume, which StartOS backups include. Restore wallet reads it back from there.': 2501,
   'Your wallet has backup in coin.dat': 2502,
   'Wallet ${wallet} has been backed up to ${file}': 2503,
 
@@ -448,6 +448,10 @@ const dict = {
   'Unconfirmed funds from others, waiting in the mempool.': 3114,
   Immature: 3115,
   'Mining rewards that cannot be spent yet.': 3116,
+  'Sends funds from wallet ${wallet} on this node. A sent transaction cannot be reversed: check the address and amount before you submit.': 3200,
+  'Sends the entire balance of wallet ${wallet} on this node. A sent transaction cannot be reversed: check the address before you submit.': 3201,
+  'Must be an amount greater than 0, with up to 8 decimal places.': 3202,
+  'Must be greater than 0 and at most 1000 sat/vB, with up to 3 decimal places.': 3203,
 } as const
 
 /**

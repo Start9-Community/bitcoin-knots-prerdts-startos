@@ -225,9 +225,9 @@ Knots' built-in wallet, surfaced as actions. All nine are grouped under **Wallet
 
 - **Select Wallet** decides which wallet every other action in the group operates on, and its description names the current selection. The default is the historical hardcoded wallet name, so an existing install is unchanged.
 - **Get Balance** and **Get Address** read; Get Balance lists the trusted, untrusted-pending and immature balances as separate copyable fields, and Get Address returns a new segwit address each time, copyable and as a QR code.
-- **Send Coins** and **Send All Coins** spend. Both are irreversible once broadcast.
+- **Send Coins** and **Send All Coins** spend. Both are irreversible once broadcast, so each carries a warning naming the selected wallet. The amount (Send Coins) must be greater than 0 BTC with at most 8 decimal places, and the fee rate is in sat/vB, greater than 0 and at most 1000, with at most 3 decimal places; the form, `start-cli` and direct RPC calls all reject anything else before bitcoind is called. An amount above the wallet's balance is refused by bitcoind itself.
 - **Sign Message** signs with one of the wallet's addresses. It, Send Coins and Send All Coins return the signature or transaction ID in a copyable field.
-- **Backup wallet** writes the wallet to a file **so that StartOS's own backup captures it** — the wallet's live database is not otherwise in a backup-safe state. It asks for confirmation, because it overwrites that wallet's previous backup file. **Restore wallet** reads that file back, also after confirmation, and refuses if a wallet of that name still exists; and **Remove wallet** deletes the selected wallet from the node.
+- **Backup wallet** writes the wallet to `<wallet>.dat` at the root of the `main` volume (`default.dat` for bitcoind's unnamed default wallet) **so that StartOS's own backup captures it** — the wallet's live database is not otherwise in a backup-safe state. It asks for confirmation, because it overwrites that wallet's previous backup file. **Restore wallet** reads that file back, also after confirmation, and refuses if a wallet of that name still exists; and **Remove wallet** deletes the selected wallet from the node.
 
 ### Prioritize Transaction
 
