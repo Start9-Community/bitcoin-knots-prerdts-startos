@@ -1,11 +1,13 @@
 import { bitcoinConfFile } from '../fileModels/bitcoin.conf'
 import { sdk } from '../sdk'
 import {
+  assertNonemptyWalletSendFee,
   ensureWalletLoaded,
   getSelectedWallet,
   rootDir,
   rpcArgs,
   walletLabel,
+  walletSendFee,
 } from '../utils'
 import { i18n } from '../i18n'
 
@@ -24,22 +26,7 @@ const inputSpec = InputSpec.of({
       },
     ],
   })),
-  fee: Value.dynamicText(async ({ effects }) => ({
-    name: i18n('Fee'),
-    description: i18n(
-      'Fee rate in sat/vB: greater than 0 and at most 1000, with up to 3 decimal places.',
-    ),
-    required: true,
-    default: null,
-    patterns: [
-      {
-        regex: '^(?=.*[1-9])([0-9]{1,3}(\\.[0-9]{1,3})?|1000(\\.0{1,3})?)$',
-        description: i18n(
-          'Must be greater than 0 and at most 1000 sat/vB, with up to 3 decimal places.',
-        ),
-      },
-    ],
-  })),
+  fee: walletSendFee,
 })
 
 export const sendAllCoin = sdk.Action.withInput(
@@ -74,6 +61,8 @@ export const sendAllCoin = sdk.Action.withInput(
   // execution function
   async ({ effects, input }) => {
     const { address, fee } = input
+
+    assertNonemptyWalletSendFee(fee)
 
     const mountpoint = '/scripts'
 

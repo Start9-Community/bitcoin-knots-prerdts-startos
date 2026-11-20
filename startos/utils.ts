@@ -152,6 +152,32 @@ export function bitcoinCliArgs(opts: {
 /** Historical hardcoded wallet name used by the Wallet-group Actions. */
 export const defaultWalletName = 'coin'
 
+function walletSendFeeError(): string {
+  return i18n(
+    'Must be greater than 0 and at most 1000 sat/vB, with up to 3 decimal places.',
+  )
+}
+
+export const walletSendFee = sdk.Value.dynamicText(async () => ({
+  name: i18n('Fee'),
+  description: i18n(
+    'Fee rate in sat/vB: greater than 0 and at most 1000, with up to 3 decimal places.',
+  ),
+  required: true,
+  default: null,
+  patterns: [
+    {
+      regex: '^(?=.*[1-9])([0-9]{1,3}(\\.[0-9]{1,3})?|1000(\\.0{1,3})?)$',
+      description: walletSendFeeError(),
+    },
+  ],
+}))
+
+export function assertNonemptyWalletSendFee(fee: string): void {
+  // SDK 3.1 text patterns accept empty strings, including required fields.
+  if (fee === '') throw new Error(walletSendFeeError())
+}
+
 /** Display label for a wallet name — bitcoind's default wallet is '' (empty). */
 export function walletLabel(name: string): string {
   return name === '' ? i18n('(default wallet)') : name
