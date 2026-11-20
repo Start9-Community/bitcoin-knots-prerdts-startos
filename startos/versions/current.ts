@@ -42,18 +42,18 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:34',
+  version: '#knotsprerdts:29.3:35',
   releaseNotes: {
     en_US:
-      'On a pruned node, a block fetched from a peer is now refused if any of its transactions repeats.',
+      'On a pruned node, the RPC proxy is updated to 0.8.4: it pauses briefly before refusing a wrong password, and no longer names itself to Bitcoin peers.',
     es_ES:
-      'En un nodo podado, un bloque obtenido de un par ahora se rechaza si alguna de sus transacciones se repite.',
+      'En un nodo podado, el proxy RPC se actualiza a 0.8.4: hace una breve pausa antes de rechazar una contraseña incorrecta y ya no se identifica por su nombre ante los pares de Bitcoin.',
     de_DE:
-      'Auf einem gekürzten Knoten wird ein von einem Peer abgerufener Block jetzt abgelehnt, wenn sich eine seiner Transaktionen wiederholt.',
+      'Auf einem gekürzten Knoten wird der RPC-Proxy auf 0.8.4 aktualisiert: Er wartet kurz, bevor er ein falsches Passwort ablehnt, und nennt Bitcoin-Peers nicht mehr seinen Namen.',
     pl_PL:
-      'Na przyciętym węźle blok pobrany od peera jest teraz odrzucany, jeśli którakolwiek z jego transakcji się powtarza.',
+      'Na przyciętym węźle proxy RPC zostaje zaktualizowane do wersji 0.8.4: przed odrzuceniem błędnego hasła robi krótką pauzę i nie przedstawia się już z nazwy peerom Bitcoina.',
     fr_FR:
-      "Sur un nœud élagué, un bloc récupéré auprès d'un pair est désormais refusé si l'une de ses transactions se répète.",
+      'Sur un nœud élagué, le proxy RPC passe à la version 0.8.4 : il marque une courte pause avant de refuser un mot de passe erroné et ne se nomme plus auprès des pairs Bitcoin.',
   },
   migrations: {
     up: async ({ effects }) => {},
