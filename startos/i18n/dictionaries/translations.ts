@@ -357,9 +357,9 @@ export default {
     1923: 'The Bitcoin address you want to send the funds.',
     1924: 'Must be alphanumeric.',
     1925: 'Amount',
-    1926: 'Amount of the transaction. (in BTC)',
+    1926: 'Importe a enviar, en BTC, con hasta 8 decimales.',
     1927: 'Fee',
-    1928: 'Fees in sat/vbytes you want to pay for the transaction.',
+    1928: 'Tasa de comisión en sat/vB: mayor que 0 y como máximo 1000, con hasta 3 decimales.',
     1930: 'Send All Coins',
     1931: 'Send all coins to a Bitcoin address.',
     1940: 'Sign Message',
@@ -380,7 +380,7 @@ export default {
     1959: 'Prioritize transaction has failed',
     // actions/backupwallet.ts
     2500: 'Backup wallet',
-    2501: 'Backup wallet in a file for startOS system backup',
+    2501: 'Escribe una copia de la cartera ${wallet} en el archivo ${file}, en la raíz del volumen de datos principal, que las copias de seguridad de StartOS incluyen. Restaurar cartera la lee de nuevo desde allí.',
     2502: 'Your wallet has backup in coin.dat',
     // actions/restorewallet.ts
     2600: 'Restore wallet',
@@ -434,6 +434,10 @@ export default {
     3114: 'Fondos no confirmados de otros, en espera en el mempool.',
     3115: 'Inmaduro',
     3116: 'Recompensas de minería que aún no se pueden gastar.',
+    3200: 'Envía fondos desde la cartera ${wallet} de este nodo. Una transacción enviada no se puede revertir: comprueba la dirección y el importe antes de enviarla.',
+    3201: 'Envía todo el saldo de la cartera ${wallet} de este nodo. Una transacción enviada no se puede revertir: comprueba la dirección antes de enviarla.',
+    3202: 'Debe ser un importe mayor que 0, con hasta 8 decimales.',
+    3203: 'Debe ser mayor que 0 y como máximo 1000 sat/vB, con hasta 3 decimales.',
   } satisfies LangDict,
   de_DE: {
     // main.ts
@@ -791,9 +795,9 @@ export default {
     1923: 'The Bitcoin address you want to send the funds.',
     1924: 'Must be alphanumeric.',
     1925: 'Amount',
-    1926: 'Amount of the transaction. (in BTC)',
+    1926: 'Zu sendender Betrag in BTC, mit bis zu 8 Nachkommastellen.',
     1927: 'Fee',
-    1928: 'Fees in sat/vbytes you want to pay for the transaction.',
+    1928: 'Gebührensatz in sat/vB: größer als 0 und höchstens 1000, mit bis zu 3 Nachkommastellen.',
     1930: 'Send All Coins',
     1931: 'Send all coins to a Bitcoin address.',
     1940: 'Sign Message',
@@ -814,7 +818,7 @@ export default {
     1959: 'Prioritize transaction has failed',
     // actions/backupwallet.ts
     2500: 'Backup wallet',
-    2501: 'Backup wallet in a file for startOS system backup',
+    2501: 'Schreibt eine Kopie der Wallet ${wallet} in die Datei ${file} auf der obersten Ebene des Hauptdatenvolumes, das StartOS-Backups einschließen. Wallet wiederherstellen liest sie von dort zurück.',
     2502: 'Your wallet has backup in coin.dat',
     // actions/restorewallet.ts
     2600: 'Restore wallet',
@@ -868,6 +872,10 @@ export default {
     3114: 'Unbestätigte Beträge von anderen, die im Mempool warten.',
     3115: 'Unreif',
     3116: 'Mining-Belohnungen, die noch nicht ausgegeben werden können.',
+    3200: 'Sendet Guthaben aus der Wallet ${wallet} dieses Knotens. Eine gesendete Transaktion lässt sich nicht rückgängig machen: Prüfen Sie Adresse und Betrag, bevor Sie absenden.',
+    3201: 'Sendet das gesamte Guthaben der Wallet ${wallet} dieses Knotens. Eine gesendete Transaktion lässt sich nicht rückgängig machen: Prüfen Sie die Adresse, bevor Sie absenden.',
+    3202: 'Muss ein Betrag größer als 0 sein, mit bis zu 8 Nachkommastellen.',
+    3203: 'Muss größer als 0 und höchstens 1000 sat/vB sein, mit bis zu 3 Nachkommastellen.',
   } satisfies LangDict,
   pl_PL: {
     // main.ts
@@ -1225,9 +1233,9 @@ export default {
     1923: 'The Bitcoin address you want to send the funds.',
     1924: 'Must be alphanumeric.',
     1925: 'Amount',
-    1926: 'Amount of the transaction. (in BTC)',
+    1926: 'Kwota do wysłania w BTC, z maksymalnie 8 miejscami po przecinku.',
     1927: 'Fee',
-    1928: 'Fees in sat/vbytes you want to pay for the transaction.',
+    1928: 'Stawka opłaty w sat/vB: większa od 0 i nie większa niż 1000, z maksymalnie 3 miejscami po przecinku.',
     1930: 'Send All Coins',
     1931: 'Send all coins to a Bitcoin address.',
     1940: 'Sign Message',
@@ -1248,7 +1256,7 @@ export default {
     1959: 'Prioritize transaction has failed',
     // actions/backupwallet.ts
     2500: 'Backup wallet',
-    2501: 'Backup wallet in a file for startOS system backup',
+    2501: 'Zapisuje kopię portfela ${wallet} do pliku ${file} w katalogu głównym głównego woluminu danych, który obejmują kopie zapasowe StartOS. Przywracanie portfela odczytuje ją stamtąd.',
     2502: 'Your wallet has backup in coin.dat',
     // actions/restorewallet.ts
     2600: 'Restore wallet',
@@ -1302,6 +1310,10 @@ export default {
     3114: 'Niepotwierdzone środki od innych, oczekujące w mempoolu.',
     3115: 'Niedojrzałe',
     3116: 'Nagrody za wydobycie, których nie można jeszcze wydać.',
+    3200: 'Wysyła środki z portfela ${wallet} na tym węźle. Wysłanej transakcji nie można cofnąć: przed wysłaniem sprawdź adres i kwotę.',
+    3201: 'Wysyła całe saldo portfela ${wallet} na tym węźle. Wysłanej transakcji nie można cofnąć: przed wysłaniem sprawdź adres.',
+    3202: 'Musi to być kwota większa od 0, z maksymalnie 8 miejscami po przecinku.',
+    3203: 'Musi być większa od 0 i nie większa niż 1000 sat/vB, z maksymalnie 3 miejscami po przecinku.',
   } satisfies LangDict,
   fr_FR: {
     // main.ts
@@ -1659,9 +1671,9 @@ export default {
     1923: 'The Bitcoin address you want to send the funds.',
     1924: 'Must be alphanumeric.',
     1925: 'Amount',
-    1926: 'Amount of the transaction. (in BTC)',
+    1926: 'Montant à envoyer, en BTC, avec jusqu’à 8 décimales.',
     1927: 'Fee',
-    1928: 'Fees in sat/vbytes you want to pay for the transaction.',
+    1928: 'Taux de frais en sat/vB : supérieur à 0 et au plus 1000, avec jusqu’à 3 décimales.',
     1930: 'Send All Coins',
     1931: 'Send all coins to a Bitcoin address.',
     1940: 'Sign Message',
@@ -1682,7 +1694,7 @@ export default {
     1959: 'Prioritize transaction has failed',
     // actions/backupwallet.ts
     2500: 'Backup wallet',
-    2501: 'Backup wallet in a file for startOS system backup',
+    2501: 'Écrit une copie du portefeuille ${wallet} dans le fichier ${file}, à la racine du volume de données principal, que les sauvegardes StartOS incluent. Restaurer le portefeuille la relit depuis cet emplacement.',
     2502: 'Your wallet has backup in coin.dat',
     // actions/restorewallet.ts
     2600: 'Restore wallet',
@@ -1736,5 +1748,9 @@ export default {
     3114: "Les fonds non confirmés reçus d'autres personnes, en attente dans le mempool.",
     3115: 'Immature',
     3116: 'Les récompenses de minage qui ne peuvent pas encore être dépensées.',
+    3200: 'Envoie des fonds depuis le portefeuille ${wallet} de ce nœud. Une transaction envoyée est irréversible : vérifiez l’adresse et le montant avant de valider.',
+    3201: 'Envoie la totalité du solde du portefeuille ${wallet} de ce nœud. Une transaction envoyée est irréversible : vérifiez l’adresse avant de valider.',
+    3202: 'Doit être un montant supérieur à 0, avec jusqu’à 8 décimales.',
+    3203: 'Doit être supérieur à 0 et au plus 1000 sat/vB, avec jusqu’à 3 décimales.',
   } satisfies LangDict,
 }

@@ -55,7 +55,9 @@ When wallets are not disabled, the node ships with a basic wallet toolkit you ca
 
 - **Select Wallet** — choose which wallet the other Wallet actions operate on. It defaults to `coin`, and the dropdown also lists wallets created by dependent services such as BTCPay Server/NBXplorer (including bitcoind's unnamed default wallet).
 - **Get Address**, **Get Balance**, **Send Coins**, **Send All Coins**, **Sign Message**.
-- **Backup wallet** / **Restore wallet** / **Remove wallet**. Backup wallet replaces the selected wallet's previous backup, and Restore wallet only works once that wallet has been removed; both ask for confirmation.
+- **Backup wallet** / **Restore wallet** / **Remove wallet**. Backup wallet writes the selected wallet to `<wallet>.dat` in the service's data volume, where StartOS backups pick it up, and replaces that wallet's previous backup; Restore wallet reads that file back and only works once that wallet has been removed. Both ask for confirmation.
+
+**Send Coins** and **Send All Coins** send real funds from the selected wallet, and a sent transaction cannot be undone: check the address and amount before you submit. Enter the amount in BTC (up to 8 decimal places) and the fee rate in sat/vB, greater than 0 and at most 1000.
 
 Every action above acts on the currently selected wallet, so if you run more than one wallet (for example alongside BTCPay Server) use **Select Wallet** to point them at the right one first — otherwise they operate on `coin`. For day-to-day use prefer a dedicated wallet pointed at the RPC interface; the action surface here is mainly for one-off recovery and maintenance.
 

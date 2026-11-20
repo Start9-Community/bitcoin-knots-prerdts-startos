@@ -42,18 +42,18 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:35',
+  version: '#knotsprerdts:29.3:36',
   releaseNotes: {
     en_US:
-      'On a pruned node, the RPC proxy is updated to 0.8.4: it pauses briefly before refusing a wrong password, and no longer names itself to Bitcoin peers.',
+      'Send Coins and Send All Coins now warn before they spend from the selected wallet, and reject a fee rate above 1000 sat/vB, a zero amount or a malformed number before anything is sent. Backup wallet now says which file it writes.',
     es_ES:
-      'En un nodo podado, el proxy RPC se actualiza a 0.8.4: hace una breve pausa antes de rechazar una contraseña incorrecta y ya no se identifica por su nombre ante los pares de Bitcoin.',
+      'Send Coins y Send All Coins ahora avisan antes de gastar de la cartera seleccionada y rechazan una tasa de comisión superior a 1000 sat/vB, un importe cero o un número mal formado antes de enviar nada. Backup wallet ahora indica qué archivo escribe.',
     de_DE:
-      'Auf einem gekürzten Knoten wird der RPC-Proxy auf 0.8.4 aktualisiert: Er wartet kurz, bevor er ein falsches Passwort ablehnt, und nennt Bitcoin-Peers nicht mehr seinen Namen.',
+      'Send Coins und Send All Coins warnen jetzt, bevor sie aus der ausgewählten Wallet ausgeben, und lehnen einen Gebührensatz über 1000 sat/vB, einen Betrag von null oder eine fehlerhafte Zahl ab, bevor etwas gesendet wird. Backup wallet nennt jetzt die Datei, die es schreibt.',
     pl_PL:
-      'Na przyciętym węźle proxy RPC zostaje zaktualizowane do wersji 0.8.4: przed odrzuceniem błędnego hasła robi krótką pauzę i nie przedstawia się już z nazwy peerom Bitcoina.',
+      'Akcje Send Coins i Send All Coins ostrzegają teraz przed wydaniem środków z wybranego portfela i odrzucają stawkę opłaty powyżej 1000 sat/vB, zerową kwotę lub błędnie zapisaną liczbę, zanim cokolwiek zostanie wysłane. Akcja Backup wallet podaje teraz, który plik zapisuje.',
     fr_FR:
-      'Sur un nœud élagué, le proxy RPC passe à la version 0.8.4 : il marque une courte pause avant de refuser un mot de passe erroné et ne se nomme plus auprès des pairs Bitcoin.',
+      'Send Coins et Send All Coins avertissent désormais avant de dépenser depuis le portefeuille sélectionné, et refusent un taux de frais supérieur à 1000 sat/vB, un montant nul ou un nombre mal formé avant tout envoi. Backup wallet indique désormais le fichier qu’il écrit.',
   },
   migrations: {
     up: async ({ effects }) => {},
