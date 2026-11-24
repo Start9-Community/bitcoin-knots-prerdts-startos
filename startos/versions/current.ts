@@ -42,18 +42,18 @@ const mempoolReset = {
 }
 
 export const current = VersionInfo.of({
-  version: '#knotsprerdts:29.3:36',
+  version: '#knotsprerdts:29.3:37',
   releaseNotes: {
     en_US:
-      'Send Coins and Send All Coins now warn before they spend from the selected wallet, and reject a fee rate above 1000 sat/vB, a zero amount or a malformed number before anything is sent. Backup wallet now says which file it writes.',
+      'Requires StartOS 0.4.2 or later. ZeroMQ notifications are now reachable only by other services on this server, no longer from your local network: the ZeroMQ Block and ZeroMQ Transaction interfaces are removed, and services that use ZeroMQ, such as LND, are unaffected. Fixes memory use growing while the service runs.',
     es_ES:
-      'Send Coins y Send All Coins ahora avisan antes de gastar de la cartera seleccionada y rechazan una tasa de comisión superior a 1000 sat/vB, un importe cero o un número mal formado antes de enviar nada. Backup wallet ahora indica qué archivo escribe.',
+      'Requiere StartOS 0.4.2 o posterior. Las notificaciones ZeroMQ ahora solo son accesibles para otros servicios de este servidor, ya no desde su red local: se eliminan las interfaces Bloque ZeroMQ y Transacción ZeroMQ, y los servicios que usan ZeroMQ, como LND, no se ven afectados. Corrige el aumento del uso de memoria mientras el servicio está en ejecución.',
     de_DE:
-      'Send Coins und Send All Coins warnen jetzt, bevor sie aus der ausgewählten Wallet ausgeben, und lehnen einen Gebührensatz über 1000 sat/vB, einen Betrag von null oder eine fehlerhafte Zahl ab, bevor etwas gesendet wird. Backup wallet nennt jetzt die Datei, die es schreibt.',
+      'Erfordert StartOS 0.4.2 oder neuer. ZeroMQ-Benachrichtigungen sind jetzt nur noch für andere Dienste auf diesem Server erreichbar, nicht mehr aus Ihrem lokalen Netzwerk: Die Schnittstellen ZeroMQ-Block und ZeroMQ-Transaktion wurden entfernt, und Dienste, die ZeroMQ nutzen, etwa LND, sind nicht betroffen. Behebt einen während der Laufzeit des Dienstes ansteigenden Speicherverbrauch.',
     pl_PL:
-      'Akcje Send Coins i Send All Coins ostrzegają teraz przed wydaniem środków z wybranego portfela i odrzucają stawkę opłaty powyżej 1000 sat/vB, zerową kwotę lub błędnie zapisaną liczbę, zanim cokolwiek zostanie wysłane. Akcja Backup wallet podaje teraz, który plik zapisuje.',
+      'Wymaga StartOS 0.4.2 lub nowszego. Powiadomienia ZeroMQ są teraz dostępne tylko dla innych usług na tym serwerze, a nie z sieci lokalnej: usunięto interfejsy Blok ZeroMQ i Transakcja ZeroMQ, a usługi korzystające z ZeroMQ, takie jak LND, działają bez zmian. Naprawia wzrost zużycia pamięci podczas działania usługi.',
     fr_FR:
-      'Send Coins et Send All Coins avertissent désormais avant de dépenser depuis le portefeuille sélectionné, et refusent un taux de frais supérieur à 1000 sat/vB, un montant nul ou un nombre mal formé avant tout envoi. Backup wallet indique désormais le fichier qu’il écrit.',
+      "Nécessite StartOS 0.4.2 ou une version ultérieure. Les notifications ZeroMQ ne sont désormais accessibles qu'aux autres services de ce serveur, et non plus depuis votre réseau local : les interfaces Bloc ZeroMQ et Transaction ZeroMQ sont supprimées, et les services qui utilisent ZeroMQ, comme LND, ne sont pas affectés. Corrige l'augmentation de la consommation de mémoire pendant le fonctionnement du service.",
   },
   migrations: {
     up: async ({ effects }) => {},

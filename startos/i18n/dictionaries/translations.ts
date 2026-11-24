@@ -29,12 +29,8 @@ export default {
     101: 'Escucha comandos JSON-RPC',
     102: 'Par',
     103: 'Escucha conexiones entrantes de pares en la red Bitcoin',
-    104: 'Bloque ZeroMQ',
     105: 'Consola del daemon I2P',
     106: 'Interfaz para acceder a la consola del daemon I2P integrado',
-    107: 'Transmite notificaciones en tiempo real de bloques de Bitcoin (hashes y datos en bruto)',
-    108: 'Transacción ZeroMQ',
-    109: 'Transmite notificaciones en tiempo real de transacciones de Bitcoin (hashes, datos en bruto y secuencia)',
 
     // actions/generateRpcUser.ts
     200: 'Nombre de usuario',
@@ -467,12 +463,8 @@ export default {
     101: 'Wartet auf JSON-RPC-Befehle',
     102: 'Peer',
     103: 'Wartet auf eingehende Verbindungen von Peers im Bitcoin-Netzwerk',
-    104: 'ZeroMQ-Block',
     105: 'I2P-Daemon-Konsole',
     106: 'Schnittstelle zum Zugriff auf die eingebettete I2P-Daemon-Konsole',
-    107: 'Überträgt Echtzeit-Benachrichtigungen über Bitcoin-Blöcke (Hashes und Rohdaten)',
-    108: 'ZeroMQ-Transaktion',
-    109: 'Überträgt Echtzeit-Benachrichtigungen über Bitcoin-Transaktionen (Hashes, Rohdaten und Sequenz)',
 
     // actions/generateRpcUser.ts
     200: 'Benutzername',
@@ -905,12 +897,8 @@ export default {
     101: 'Nasłuchuje poleceń JSON-RPC',
     102: 'Peer',
     103: 'Nasłuchuje przychodzących połączeń od peerów w sieci Bitcoin',
-    104: 'Blok ZeroMQ',
     105: 'Konsola daemona I2P',
     106: 'Interfejs dostępu do konsoli wbudowanego daemona I2P',
-    107: 'Strumieniuje powiadomienia w czasie rzeczywistym o blokach Bitcoin (hashe i dane surowe)',
-    108: 'Transakcja ZeroMQ',
-    109: 'Strumieniuje powiadomienia w czasie rzeczywistym o transakcjach Bitcoin (hashe, dane surowe i sekwencja)',
 
     // actions/generateRpcUser.ts
     200: 'Nazwa użytkownika',
@@ -1343,12 +1331,8 @@ export default {
     101: 'Écoute les commandes JSON-RPC',
     102: 'Pair',
     103: 'Écoute les connexions entrantes des pairs sur le réseau Bitcoin',
-    104: 'Bloc ZeroMQ',
     105: 'Console du démon I2P',
     106: 'Interface pour accéder à la console du démon I2P intégré',
-    107: 'Diffuse en temps réel des notifications de blocs Bitcoin (hashs et données brutes)',
-    108: 'Transaction ZeroMQ',
-    109: 'Diffuse en temps réel des notifications de transactions Bitcoin (hashs, données brutes et séquence)',
 
     // actions/generateRpcUser.ts
     200: "Nom d'utilisateur",
