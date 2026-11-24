@@ -45,15 +45,15 @@ export const current = VersionInfo.of({
   version: '#knotsprerdts:29.3:37',
   releaseNotes: {
     en_US:
-      'Requires StartOS 0.4.2 or later. ZeroMQ notifications are now reachable only by other services on this server, no longer from your local network: the ZeroMQ Block and ZeroMQ Transaction interfaces are removed, and services that use ZeroMQ, such as LND, are unaffected. Fixes memory use growing while the service runs.',
+      'Requires StartOS 0.4.2 or later. ZeroMQ notifications are now reachable only by other services on this server, no longer from your local network: the ZeroMQ Block and ZeroMQ Transaction interfaces are removed, and services that use ZeroMQ, such as LND, are unaffected. Switching here from Bitcoin Core 32.x is now refused. Fixes memory use growing while the service runs.',
     es_ES:
-      'Requiere StartOS 0.4.2 o posterior. Las notificaciones ZeroMQ ahora solo son accesibles para otros servicios de este servidor, ya no desde su red local: se eliminan las interfaces Bloque ZeroMQ y Transacción ZeroMQ, y los servicios que usan ZeroMQ, como LND, no se ven afectados. Corrige el aumento del uso de memoria mientras el servicio está en ejecución.',
+      'Requiere StartOS 0.4.2 o posterior. Las notificaciones ZeroMQ ahora solo son accesibles para otros servicios de este servidor, ya no desde su red local: se eliminan las interfaces Bloque ZeroMQ y Transacción ZeroMQ, y los servicios que usan ZeroMQ, como LND, no se ven afectados. Ahora se rechaza el cambio desde Bitcoin Core 32.x. Corrige el aumento del uso de memoria mientras el servicio está en ejecución.',
     de_DE:
-      'Erfordert StartOS 0.4.2 oder neuer. ZeroMQ-Benachrichtigungen sind jetzt nur noch für andere Dienste auf diesem Server erreichbar, nicht mehr aus Ihrem lokalen Netzwerk: Die Schnittstellen ZeroMQ-Block und ZeroMQ-Transaktion wurden entfernt, und Dienste, die ZeroMQ nutzen, etwa LND, sind nicht betroffen. Behebt einen während der Laufzeit des Dienstes ansteigenden Speicherverbrauch.',
+      'Erfordert StartOS 0.4.2 oder neuer. ZeroMQ-Benachrichtigungen sind jetzt nur noch für andere Dienste auf diesem Server erreichbar, nicht mehr aus Ihrem lokalen Netzwerk: Die Schnittstellen ZeroMQ-Block und ZeroMQ-Transaktion wurden entfernt, und Dienste, die ZeroMQ nutzen, etwa LND, sind nicht betroffen. Ein Wechsel von Bitcoin Core 32.x wird jetzt abgelehnt. Behebt einen während der Laufzeit des Dienstes ansteigenden Speicherverbrauch.',
     pl_PL:
-      'Wymaga StartOS 0.4.2 lub nowszego. Powiadomienia ZeroMQ są teraz dostępne tylko dla innych usług na tym serwerze, a nie z sieci lokalnej: usunięto interfejsy Blok ZeroMQ i Transakcja ZeroMQ, a usługi korzystające z ZeroMQ, takie jak LND, działają bez zmian. Naprawia wzrost zużycia pamięci podczas działania usługi.',
+      'Wymaga StartOS 0.4.2 lub nowszego. Powiadomienia ZeroMQ są teraz dostępne tylko dla innych usług na tym serwerze, a nie z sieci lokalnej: usunięto interfejsy Blok ZeroMQ i Transakcja ZeroMQ, a usługi korzystające z ZeroMQ, takie jak LND, działają bez zmian. Przejście z Bitcoin Core 32.x jest teraz odrzucane. Naprawia wzrost zużycia pamięci podczas działania usługi.',
     fr_FR:
-      "Nécessite StartOS 0.4.2 ou une version ultérieure. Les notifications ZeroMQ ne sont désormais accessibles qu'aux autres services de ce serveur, et non plus depuis votre réseau local : les interfaces Bloc ZeroMQ et Transaction ZeroMQ sont supprimées, et les services qui utilisent ZeroMQ, comme LND, ne sont pas affectés. Corrige l'augmentation de la consommation de mémoire pendant le fonctionnement du service.",
+      "Nécessite StartOS 0.4.2 ou une version ultérieure. Les notifications ZeroMQ ne sont désormais accessibles qu'aux autres services de ce serveur, et non plus depuis votre réseau local : les interfaces Bloc ZeroMQ et Transaction ZeroMQ sont supprimées, et les services qui utilisent ZeroMQ, comme LND, ne sont pas affectés. Le passage depuis Bitcoin Core 32.x est désormais refusé. Corrige l'augmentation de la consommation de mémoire pendant le fonctionnement du service.",
   },
   migrations: {
     up: async ({ effects }) => {},
