@@ -165,7 +165,7 @@ There is no setup wizard, no credential to enter, and no task raised at install 
 5. **Every start** runs `nocow` and `clean-chainstate-old` before bitcoind.
 6. **When sync completes**, `synced-true` posts a Sync Complete notification and clears the two cache settings. It fires once per data directory; a reindex resets the flag, so it fires again when that finishes.
 
-A switch from Bitcoin Core 28.x–31.x, or from **Bitcoin Knots (Legacy)** — the StartOS 0.3.5.1 Knots as the 0.4.0 update carries it over — keeps the data directory and runs as an update. Coming from Core, the mempool policy keys are reset so Knots' defaults apply; coming from Legacy, the config is kept as written. Bitcoin Knots (RDTS) is refused: it follows a different chain.
+A switch from Bitcoin Core 28.x–31.x, or from **Bitcoin Knots (Legacy)** — the StartOS 0.3.5.1 Knots as the 0.4.0 update carries it over — keeps the data directory and runs as an update. Coming from Core, the mempool policy keys are reset so Knots' defaults apply; coming from Legacy, the config is kept as written. Bitcoin Knots (RDTS) is refused: it follows a different chain. A switch from Bitcoin Core 32.x is refused too, since it would move Core 32 data back to Knots 29.3: the update fails with a message saying so, and StartOS rolls back to Bitcoin Core with its data intact.
 
 ## Actions
 

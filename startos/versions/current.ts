@@ -103,6 +103,14 @@ export const current = VersionInfo.of({
           await bitcoinConfFile.merge(effects, mempoolReset)
         },
       },
+      // Refused: Core 32 data on Knots 29.3 is a cross-major downgrade; the failed update rolls back to Core.
+      ['^32']: {
+        up: async () => {
+          throw new Error(
+            'Bitcoin Knots (pre-RDTS) cannot replace Bitcoin Core 32.x: it runs Knots 29.3, and moving a Core 32 data directory back to 29.3 is a downgrade across major versions. Keep Bitcoin Core, or uninstall it (which deletes the blockchain data) and install Bitcoin Knots (pre-RDTS) fresh.',
+          )
+        },
+      },
       // #knots through :7 ran Knots 29.3.knots20260210 or earlier; :8 is the first RDTS build.
       ['<=#knots:29.3:7']: {
         up: async () => {},
